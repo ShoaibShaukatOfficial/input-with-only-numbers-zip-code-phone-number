@@ -1,0 +1,20 @@
+<form [formGroup]="myForm">
+  <input
+    type="text"
+    OnlyNumber
+    NumberType="zipCode"
+    placeholder="Enter postal code"
+    formControlName="postalCode"
+    maxlength="10"
+  />
+  <p>{{myForm.get('postalCode').value}}</p>
+  <input
+    type="text"
+    OnlyNumber
+    NumberType="phone"
+    placeholder="Enter Phone Number"
+    formControlName="Phone Number"
+    maxlength="10"
+  />
+  <p>{{myForm.get('phoneNumber').value}}</p>
+</form>
