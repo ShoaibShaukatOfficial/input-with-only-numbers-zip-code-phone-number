@@ -84,7 +84,7 @@ export class OnlyNumberDirective {
       .replace(/[^\w\s]/g, '')
       .replace('-', '')
       .replace(' ', '');
-
+    this.el.nativeElement.value = value;
     if (this.NumberType === 'zipCode') {
       let fragment1 = '';
       let fragment2 = '';
