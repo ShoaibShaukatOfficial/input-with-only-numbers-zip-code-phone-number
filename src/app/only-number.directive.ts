@@ -91,8 +91,8 @@ export class OnlyNumberDirective {
       switch (value.length) {
         case 9:
           this.el.nativeElement.value = '';
-          fragment1 = value.slice(0, 4);
-          fragment2 = value.slice(4);
+          fragment1 = value.slice(0, 5);
+          fragment2 = value.slice(5);
           value = fragment1 + '-' + fragment2;
           break;
         default:
