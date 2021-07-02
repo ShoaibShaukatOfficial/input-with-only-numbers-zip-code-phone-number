@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
@@ -7,17 +7,14 @@ import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@ang
 })
 export class AppComponent implements OnInit {
   name = 'Angular 6';
-  
+
   myForm: FormGroup;
-  constructor(
-    private fb: FormBuilder
-  ) { }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-
     this.myForm = this.fb.group({
-      postalCode: [null, Validators.required]
+      zipCode: [null, Validators.required],
+      phone: [null, Validators.required]
     });
   }
-
 }

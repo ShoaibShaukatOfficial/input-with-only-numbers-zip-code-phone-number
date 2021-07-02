@@ -80,19 +80,30 @@ export class OnlyNumberDirective {
   };
   applyFormat = () => {
     let value = this.el.nativeElement.value;
+    value = value
+      .replace(/[^\w\s]/g, '')
+      .replace('-', '')
+      .replace(' ', '');
+
     if (this.NumberType === 'zipCode') {
-      if (value && value.length > 5 && !value.match('-')) {
-        this.el.nativeElement.value =
-          value.slice(0, 5) + '-' + value.slice(5, 9);
+      let fragment1 = '';
+      let fragment2 = '';
+      switch (value.length) {
+        case 9:
+          this.el.nativeElement.value = '';
+          fragment1 = value.slice(0, 4);
+          fragment2 = value.slice(4);
+          value = fragment1 + '-' + fragment2;
+          break;
+        default:
+          return value;
       }
+      this.el.nativeElement.value = value;
     }
     if (this.NumberType === 'phone') {
       let country = '';
       let city = '';
       let phone = '';
-      value = value.replace(/[^\w\s]/g, '').replace(' ', '');
-      this.el.nativeElement.value = value;
-
       switch (value.length) {
         case 10:
           this.el.nativeElement.value = '';
